@@ -1,0 +1,66 @@
+.user-data {
+    width: 50%;
+    margin: auto;
+  }
+  .form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 50px 50px 50px 100px;
+    border-radius: 10px;
+  }
+  .form-value {
+    display: flex;
+    justify-content: center;
+  }
+  .form-value > label {
+    display: flex;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .form-value #username {
+    width: 100%;
+    max-width: 400px;
+  }
+  .form-value #password {
+    width: 100%;
+    max-width: 400px;
+  }
+  .form-value #city {
+    width: 100%;
+    max-width: 400px;
+  }
+  .form-value #date {
+    width: 100%;
+    max-width: 400px;
+  }
+  .btn-div{
+    text-align: center;
+  
+  }
+  
+  .sub-btn {
+    background-color: #41a96d;
+    color: white;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 5px;
+    /* margin-top: 20px; */
+    width: 50%;
+  }
+  .showdata {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; /* Optional: adds space between grid items */
+  }
+  
+  .itembox {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-top: 20px;
+    padding: 20px 30px;
+    max-width: 400px;
+  }
+  

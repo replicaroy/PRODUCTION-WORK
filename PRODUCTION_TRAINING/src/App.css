@@ -1,0 +1,12 @@
+*{
+  padding: 0; margin: 0; box-sizing: border-box;
+}
+.containers{
+width: 80%;
+margin: auto;
+padding-top: 100px;
+}
+
+.containers h4{
+  text-align: center; padding-bottom: 30px;
+  }

@@ -1,0 +1,35 @@
+.form-container{
+    padding: 50px;
+    display: flex; justify-content: space-between; 
+}
+.form-data{
+    display: flex; flex-direction: column; gap: 20px;
+}
+.form-values{
+    display: flex; gap: 20px;
+}
+.form-values label{
+    width: 320px; background: #E0E6FF; color: rgb(0, 0, 0); font-size: 14px; padding: 10px;
+}
+.form-values {
+ 
+}
+.inputs {
+    width: 300px; height: 40px;  
+}
+.beat{
+    padding: 5px 0 0 20px; text-align: center; 
+}
+.textarea{
+    width: 100%; height: 100px;
+}
+span{
+    color: red; font-size: 16px;
+}
+.btn-div .btn{
+    padding: 10px 50px; background-color: green; color: white;
+
+}
+.btn{
+    padding: 10px 50px; background-color: green; color: white;
+}
