@@ -1,0 +1,158 @@
+import React, { useState } from 'react';
+import './Form.css';
+
+import { InputText } from 'primereact/inputtext';
+import { Calendar } from 'primereact/calendar';
+import { InputTextarea } from 'primereact/inputtextarea';
+import { Dropdown } from 'primereact/dropdown';
+
+const formObj = {
+  incidentDate: null,
+  infomDate: null,
+  acrDate: null,
+  ncrOfficer: '',
+  ncrBrief: '',
+  dsdNo: '',
+  beatNo: '',
+  officerRank: ''
+};
+
+const formFields = [
+  { name: 'incidentDate', 
+    title: `अपराध की घटना की तिथि / समय ${ <span className='star'>*</span>}`,
+     type: 'text', 
+    type: 'date' },
+  { name: 'infomDate',
+    title: `सूचना प्राप्त करने की तिथि / समय ${<span className='star'>*</span>}`,
+    type: 'text',
+  type:'date' },
+
+  { name: 'acrDate',
+     title: 'एनसीआर दर्ज की है जो अधिकारी का नाम',
+      type: "text" },
+  { name: 'ncrOfficer',
+     title: 'एनसीआर का संक्षिप्त विवरण', 
+     optionLabel: 'name', 
+     type: "textarea" },
+];
+
+const Beats = ['मावली जं.', 'नाथद्वारा','कांकरोली','कुंवारिया','लावा सरदार गढ','चारभूजा रोड','कुआथल','देवगढ मदारिया','खामली घाट','गौरमघाट'];
+
+const Form = () => {
+  const [formData, setFormData] = useState(formObj);
+  const [data, setData] = useState([]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleCalendarChange = (e, name) => {
+    setFormData(prevState => ({ ...prevState, [name]: e.value }));
+  };
+
+  const handleDropdownChange = (e) => {
+    setFormData(prevState => ({ ...prevState, beatNo: e.value }));
+  };
+
+  const handleSubmit = () => {
+    setData([...data, formData]);
+    console.log(data);
+    setFormData(formObj); // Reset the form
+  };
+
+  return (
+    <>
+      <div className='main border rounded'>
+        <div className="form-container">
+          <div className="form-data">
+            <div className="form-values">
+              <label htmlFor="incidentDate">अपराध की घटना की तिथि / समय <span className='star'>*</span></label>
+              <Calendar 
+                name='incidentDate'
+                id='incidentDate'
+                value={formData.incidentDate}
+                className='inputs'
+                onChange={(e) => handleCalendarChange(e, 'incidentDate')}
+              />
+            </div>
+
+            <div className="form-values">
+              <label htmlFor="infomDate">सूचना प्राप्त करने की तिथि / समय <span className='star'>*</span></label>
+              <Calendar 
+                className='inputs'
+                name='infomDate'
+                id='infomDate'
+                value={formData.infomDate}
+                onChange={(e) => handleCalendarChange(e, 'infomDate')}
+              />
+            </div>
+
+            <div className="form-values">
+              <label htmlFor="ncrOfficer">एनसीआर दर्ज की है जो अधिकारी का नाम</label>
+              <InputText 
+                className='inputs'
+                name='ncrOfficer'
+                id='ncrOfficer'
+                value={formData.ncrOfficer}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="form-values">
+              <label htmlFor="ncrBrief">एनसीआर का संक्षिप्त विवरण <span className='star'>*</span></label>
+            </div>
+            <div className="form-values">
+              <InputTextarea
+                className='inputs textarea'
+                name='ncrBrief'
+                rows={5}
+                cols={60}
+                value={formData.ncrBrief}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="form-data">
+            <div className="form-values">
+              <label htmlFor="dsdNo">डी / एसडी / डीडी संख्या <span className='star'>*</span></label>
+              <InputText
+                className='inputs'
+                name='dsdNo'
+                id='dsdNo'
+                value={formData.dsdNo}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-values">
+              <label htmlFor="beatNo">बीट सं.</label>
+              <Dropdown
+                options={Beats}
+                value={formData.beatNo}
+                onChange={handleDropdownChange}
+                placeholder='Select Beat'
+                className='inputs beat'
+              />
+            </div>
+            <div className="form-values">
+              <label htmlFor="officerRank">रैंक और अधिकारी की संख्या जो एनसीआर दर्ज किया था</label>
+              <InputText
+                className='inputs'
+                name='officerRank'
+                id='officerRank'
+                value={formData.officerRank}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="btn-div">
+          <button className="btn" onClick={handleSubmit}>जमा करें</button>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Form;
