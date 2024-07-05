@@ -5,25 +5,16 @@ import React from "react";
 import Label from "./Label";
 import { Dropdown } from "primereact/dropdown";
 
-const Beats = [
-  "मावली जं.",
-  "नाथद्वारा",
-  "कांकरोली",
-  "कुंवारिया",
-  "लावा सरदार गढ",
-  "चारभूजा रोड",
-  "कुआथल",
-  "देवगढ मदारिया",
-  "खामली घाट",
-  "गौरमघाट",
-];
 
-const Input = ({ field, onchangecb, formvalue }) => {
+
+const Input = ({ field, onchangecb, formvalue, options=[] }) => {
   return (
-    <div>
+    <div className="main">
+    <div className="" style={{}}>
       <Label name={field.name} title={field.title}>
         {field.type === "date" ? (
           <Calendar
+          className="w-100"
             name={field.name}
             type={field.type}
             onChange={onchangecb}
@@ -34,6 +25,7 @@ const Input = ({ field, onchangecb, formvalue }) => {
         {field.type === "text" ? (
           <InputText
             name={field.name}
+          className="w-100"
             type={field.type}
             onChange={onchangecb}
             value={formvalue?.[field.name] ?? ""}
@@ -43,20 +35,26 @@ const Input = ({ field, onchangecb, formvalue }) => {
           <InputTextarea
             name={field.name}
             type={field.type}
+          className="w-100"
             onChange={onchangecb}
             value={formvalue?.[field.name] ?? ""}
           />
         ) : null}
         {field.type === "dropdown" ? 
-          <Dropdown
-          className="w-100"
-            options={Beats}
-            // optionLabel="label"
+          <Dropdown    
+            options={options}      
             onChange={onchangecb}
+            optionLabel={field.optionLabel}
+            optionValue="name"
+          className="w-100"
+
             value={formvalue?.[field.name] ?? ""}
+            name={field.name}
           />:null
         }
       </Label>
+    </div>
+    
     </div>
   );
 };
