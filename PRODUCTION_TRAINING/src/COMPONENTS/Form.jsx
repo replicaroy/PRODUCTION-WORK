@@ -47,7 +47,7 @@ const formFields2 = [
     optionLabel: "name",
     type: "text",
   },
-  { name: "beat", title: `बीट सं.`, optionLabel: "name", type: "dropdown" },
+  { name: "beatNo", title: `बीट सं.`, optionLabel: "name", type: "dropdown" },
   {
     name: "officerRank",
     title: `रैंक और अधिकारी की संख्या जो एनसीआर दर्ज किया था`,
@@ -92,7 +92,7 @@ const Form = () => {
   };
 
   const getOptionList = (field) => {
-    if(field.name === 'beat'){
+    if(field.name === 'beatNo'){
       return Beats
     }
   }
@@ -149,7 +149,7 @@ const Form = () => {
                 <p>{item.ncrOfficer}</p>
                 <p>{item.ncrBrief}</p>
                 <p>{item.dsdNo}</p>
-                <p>{item.beatNo?.name}</p>
+                <p>{item.beatNo}</p>
                 <p>{item.officerRank}</p>
               </div>
             </div>

@@ -44,7 +44,7 @@ const Input = ({ field, onchangecb, formvalue, options=[] }) => {
           <Dropdown    
             options={options}      
             onChange={onchangecb}
-            optionLabel={field.optionLabel}
+            optionLabel='name'
             optionValue="name"
           className="w-100"
 
@@ -60,3 +60,4 @@ const Input = ({ field, onchangecb, formvalue, options=[] }) => {
 };
 
 export default Input;
+
