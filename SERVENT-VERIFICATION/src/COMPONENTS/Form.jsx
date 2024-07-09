@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Input from './Input';
+import { ToastContainer, toast } from 'react-toastify';
 
 const formInputs = {
     name: '',
@@ -28,13 +29,15 @@ console.log('formVal', formVal)
     const handleSubmit = (e) => {
         // e.preventDefault();
         if( !formVal.name||!formVal.email||!formVal.password||!formVal.date||!formVal.city){
-            alert()
+            toast.error('All fields required')
             return            
         }
         else{
             setData(prev => [...prev, formVal]);
             setFormVal({...formInputs});
             console.log(data);
+            toast.success('Submitted successfully')
+
         }
     };
 

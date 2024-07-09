@@ -5,3 +5,11 @@
     width: 50%;
  
  }
+ .p-error {
+   color: red;
+   margin-top: 5px;
+}
+
+.p-invalid {
+   border-color: red;
+}
