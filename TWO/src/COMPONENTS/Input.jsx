@@ -18,7 +18,7 @@ const Input = ({ field, onchangecb, formvalue, options=[] }) => {
             name={field.name}
             type={field.type}
             onChange={onchangecb}
-            value={formvalue?.[field.name] ?? ""}
+            value={formvalue?.[field.name] ?? ""}n 
           />
         ) : null}
 
@@ -47,7 +47,6 @@ const Input = ({ field, onchangecb, formvalue, options=[] }) => {
             optionLabel='name'
             optionValue="name"
           className="w-100"
-
             value={formvalue?.[field.name] ?? ""}
             name={field.name}
           />:null

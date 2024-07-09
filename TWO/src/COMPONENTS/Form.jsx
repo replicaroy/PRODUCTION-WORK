@@ -69,6 +69,19 @@ const Beats = [
   {name: "गौरमघाट"},
 ];
 
+const indianStates = [
+  { name: 'Maharashtra', value: 'MH' },
+  { name: 'Tamil Nadu', value: 'TN' },
+  { name: 'Karnataka', value: 'KA' },
+  { name: 'Gujarat', value: 'GJ' },
+  { name: 'Rajasthan', value: 'RJ' },
+  { name: 'Uttar Pradesh', value: 'UP' },
+  { name: 'Madhya Pradesh', value: 'MP' },
+  { name: 'West Bengal', value: 'WB' },
+  { name: 'Bihar', value: 'BR' },
+  { name: 'Andhra Pradesh', value: 'AP' }
+];
+
 const Form = () => {
   const [formData, setFormData] = useState(formObj);
   const [data, setData] = useState([]);
@@ -94,6 +107,9 @@ const Form = () => {
   const getOptionList = (field) => {
     if(field.name === 'beatNo'){
       return Beats
+    }
+    if(field.name === 'indianStates'){
+      return indianStates
     }
   }
 
