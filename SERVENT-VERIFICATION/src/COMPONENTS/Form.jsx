@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from './Input';
 import { ToastContainer, toast } from 'react-toastify';
+import Showdata from './Showdata';
 
 const formInputs = {
     name: '',
@@ -11,8 +12,10 @@ const formInputs = {
     district: '',
     tehsil: '',
     village: '',
+    gender: '',
+    'other details': '',
+    file : ''
 };
-
 
 const Form = () => {
     const [formVal, setFormVal] = useState(formInputs);
@@ -25,19 +28,16 @@ const Form = () => {
             [name]: value,
         }));
     };
-console.log('formVal', formVal)
+
     const handleSubmit = (e) => {
-        // e.preventDefault();
-        if( !formVal.name||!formVal.email||!formVal.password||!formVal.date||!formVal.city){
-            toast.error('All fields required')
-            return            
-        }
-        else{
+        e.preventDefault();
+        if(!formVal.name || !formVal.email || !formVal.password || !formVal.date || !formVal.city || !formVal.gender){
+            toast.error('All fields required');
+            return;
+        } else {
             setData(prev => [...prev, formVal]);
             setFormVal({...formInputs});
-            console.log(data);
-            toast.success('Submitted successfully')
-
+            toast.success('Submitted successfully');
         }
     };
 
@@ -45,33 +45,32 @@ console.log('formVal', formVal)
         { name: 'name', type: 'text', title: 'Name *' },
         { name: 'email', type: 'text', title: 'Email *' },
         { name: 'password', type: 'password', title: 'Password *' },
-        { name: 'date', type: 'date', title: 'Date *' },
-        { name: 'state', type: 'state', optionLabel: "name", title: 'States *' },
-        { name: 'city', type: 'district', optionLabel: "name", title: 'District *' },
-        { name: 'tehsil', type: 'tehsil', optionLabel: "name", title: 'Tehsil *' },
-        { name: 'village', type: 'village', optionLabel: "name", title: 'Village *' },
+        { name: 'date', type: 'date', title: 'Date *' },   
+        { name: 'other details', type: 'details', optionLabel: "name", title: 'Other details *' },
     ];
 
-    // const cities = [
-    //     { name: 'Jaipur' },
-    //     { name: 'Udaipur' },
-    //     { name: 'Ajmer' },
-    //     { name: 'Bikaner' },
-    //     { name: 'Kota' },
-    // ];
+    const formFields2 = [
+        { name: 'state', type: 'dropdown', optionLabel: "name", title: 'States *' },
+        { name: 'city', type: 'dropdown', optionLabel: "name", title: 'District *' },
+        { name: 'tehsil', type: 'dropdown', optionLabel: "name", title: 'Tehsil *' },
+        { name: 'village', type: 'dropdown', optionLabel: "name", title: 'Village *' },
+        { name: 'gender', type: 'radio', optionLabel: "name", title: 'Gender *' },
+        { name: 'file', type: 'file', optionLabel: "file", title: 'Upload File *' },
+    ];
+
     const indianStates = [
-        { name: 'Maharashtra',  },
-        { name: 'Tamil Nadu', },
-        { name: 'Karnataka',  },
-        { name: 'Gujarat', },
-        { name: 'Rajasthan',  },
-        { name: 'Uttar Pradesh',  },
-        { name: 'Madhya Pradesh',  },
-        { name: 'West Bengal',  },
-        { name: 'Bihar',  },
-        { name: 'Andhra Pradesh',  }
-      ];
-      const cities = [
+        { name: 'Maharashtra' },
+        { name: 'Tamil Nadu' },
+        { name: 'Karnataka' },
+        { name: 'Gujarat' },
+        { name: 'Rajasthan' },
+        { name: 'Uttar Pradesh' },
+        { name: 'Madhya Pradesh' },
+        { name: 'West Bengal' },
+        { name: 'Bihar' },
+        { name: 'Andhra Pradesh' }
+    ];
+    const cities = [
         { name: 'Jaipur' },
         { name: 'Udaipur' },
         { name: 'Jodhpur' },
@@ -106,66 +105,62 @@ console.log('formVal', formVal)
         { name: 'Khurd' },
         { name: 'Lakhnauti' },
         { name: 'Pipalkheda' }
+    ];   
+    const selectGender = [
+        {name: 'Male', value: 'Male'},
+        {name: 'Female', value: 'Female'},
+        {name: 'Other', value: 'Other'}
     ];
-    
 
-      const getOptionList = (field) => {
-        // if (field.name === 'district') {
-        //     return rajasthanDistricts;
-        // } 
-        if (field.name === 'tehsil') {
-            return tehsil;
-        } 
-        if (field.name === 'village') {
-            return village;
-        } 
-        if (field.name === 'city') {
-            return cities;
-        }   
-        if (field.name === 'state') {
-            return indianStates;
-        }   
-        else{
-            return [];
-        }  
+    const getOptionList = (field) => {
+        switch (field.name) {
+            case 'tehsil': return tehsil;
+            case 'village': return village;
+            case 'city': return cities;
+            case 'state': return indianStates;
+            case 'gender': return selectGender;
+            default: return [];
+        }
     };
-  
 
     return (
         <>
-            <div className='data-pass-field d-flex flex-column border rounded '>
-                {formFields.map((field) => (
-                    <Input 
-                        key={field.name}
-                        field={field}
-                        onChange={handleChange}
-                        value={formVal}
-                        options={getOptionList(field)}
+        <div className="main border rounded">
+            <div className='data-pass-field d-flex'>
+                <div className="formfield">
+                    {formFields.map((field) => (
+                        <Input 
+                            key={field.name}
+                            field={field}
+                            onChange={handleChange}
+                            value={formVal}
+                            options={getOptionList(field)}
+                        />
+                    ))}
+                </div>
 
-                    />
-                ))}
-                <button className="btn text-white bg-success w-50 m-auto my-4 "  onClick={handleSubmit}>
-                    Submit
-                </button>
-            </div>
-
-            <div className="showData">
-                <div className=' item-box w-100 border  rounded my-4 '>
-                    {data.map((item, i) => (
-                     <div key={i} className="items w-100 d-flex gap-5">
-                     <div className="name"><b>Name:  &nbsp; &nbsp; </b>{item.name}</div>
-                     <div className="email"><b>Email:  &nbsp; &nbsp; </b>{item.email}</div>
-                     <div className="password"><b>Password:  &nbsp; &nbsp; </b>{item.password}</div>
-                     <div className="date"><b>Date:  &nbsp; &nbsp; </b>{item.date ? new Date(item.date).toLocaleDateString() : ""}</div>
-                     <div className="city"><b>City:  &nbsp; &nbsp; </b>{item.city?.name}</div>
-                     <div className="city"><b>State:  &nbsp; &nbsp; </b>{item.state?.name}</div>
-                     <div className="city"><b>Village:  &nbsp; &nbsp; </b>{item.village?.name}</div>
-                     <div className="city"><b>Tehsil:  &nbsp; &nbsp; </b>{item.tehsil?.name}</div>
-                     {/* <div className="city"><b>City:  &nbsp; &nbsp; </b>{item.state?.name}</div> */}
-                 </div>
+                <div className="formfield">
+                    {formFields2.map((field) => (
+                        <Input 
+                            key={field.name}
+                            field={field}
+                            onChange={handleChange}
+                            value={formVal}
+                            options={getOptionList(field)}
+                        />
                     ))}
                 </div>
             </div>
+            <div className="btn-div text-center">
+                <button className="btn text-white bg-success w-50 m-auto my-4" onClick={handleSubmit}>
+                    Submit
+                </button>
+            </div>
+        </div>
+
+        <div className="showData">
+            <Showdata data={data} />
+        </div>
         </>
     );
 };
