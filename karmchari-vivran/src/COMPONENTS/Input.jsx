@@ -63,51 +63,31 @@ const Input = ({ field, onChange, value, options, checked }) => {
         ) : null}
        
         {field.type === "check" ? (
-        <div>
-          <Checkbox
-            inputId="work1"
-            name="work"
-            value='Food'            
-            onChange={onChange}
-            checked={checked}
-          />
-          <label htmlFor="ingredient1" className="ml-2">
-            Food
-          </label>
-        </div>
-      ) : null}
+          <div>
+            <Checkbox
+              inputId={`work-${field.name}`}
+              name={field.name}
+              value={field.name}            
+              onChange={handleChange}
+              checked={checked?.[field.name]?.includes(field.name)}
+            />
+          <span>Food</span>
+          </div>
+        ) : null}
 
-      {field.type === "check" ? (
-        <div>
-          <Checkbox
-            inputId="work2"
-            name="work"
-            value='Cleaning'
-            onChange={onChange}
-            checked={checked}
-          />
-          <label htmlFor="ingredient2" className="ml-2">
-            Cleaning
-          </label>
-        </div>
-      ) : null}
-
-      {field.type === "check" ? (
-        <div>
-          <Checkbox
-            inputId="work3"
-            name="work"
-            value='Driving'
-            onChange={onChange}
-            checked={checked}
-          />
-          <label htmlFor="ingredient3" className="ml-2">
-            Driving
-          </label>
-        </div>
-      ) : null}
-
-       
+        {field.type === "check" ? (
+          <div>
+            <Checkbox
+              inputId={`Clean-${field.name}`}
+              name={field.name}
+              value={field.name}            
+              onChange={handleChange}
+              checked={checked?.[field.name]?.includes(field.name)}
+            />
+          <span>Clean</span>
+          </div>
+        ) : null}
+        
       </Label>
     </div>
   );

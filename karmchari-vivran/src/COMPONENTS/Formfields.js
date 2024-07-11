@@ -31,7 +31,7 @@ export const formfieldsarray = [
   {name: "वर्ण", type: 'dropdown', title: 'वर्ण', optionlabel: 'name' , required: false },
   {name: "जन्म - स्थान", type: 'text', title: 'जन्म - स्थान', optionlabel: 'name' , required: true },
   {name: "जन्म तिथि" , type: 'date', title: 'जन्म तिथि', optionlabel: 'name' , required: true },  
-  {name: "Known works" , type: 'check', title: 'Known works', optionlabel: 'Known works' , required: false },  
+  {name: "Known works" , type: 'check', title: 'Known works', optionlabel: 'Known works' , required: true },  
 ]
 
 export const formfieldsarray2 = [

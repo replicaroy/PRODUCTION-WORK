@@ -1,39 +1,57 @@
 import React, { useState } from "react";
 import {
-  formVal,
   formfieldsarray,
   formfieldsarray2,
   optionsList,
-  recogniseMarks,
-  sex,
-  colourTypes,
-  bodyTypes,
-  hairTypes,
-  eyeTypes,
-  languages,
-  
+  // other imports
 } from "./Formfields";
-
 import Input from "./Input";
 import Showdata from "./Showdata";
+
+export const formVal = {
+  "यूआईडी": '',
+  'प्रथम नाम': '',
+  'मध्य नाम': '',
+  "अंतिम नाम": '',
+  "लिंग": '',
+  "वर्ण": '',
+  "जन्म-स्थान": '',
+  "जन्म तिथि": '',
+  'Known works': [],
+  "आयु (वर्ष/महीना)": '',
+  "जन्म का वर्ष": '',
+  "आयु सीमा (से-तक)": '',
+  "लंबाई (सेमी)": '',
+  "गठन": '',
+  "बालों का प्रकार": '',
+  "आँखों के प्रकार": '',
+  "पहचान चिन्ह": '',
+  "ज्ञात भाषाएँ": '',
+};
 
 const Form = () => {
   const [formData, setFormData] = useState(formVal);
   const [data, setData] = useState([]);
-  const [checkValue, setCheckValue] =useState([])
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    const { name, value, type, checked } = e.target;
+    if (type === "checkbox") {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: checked
+          ? [...prevData[name], value]
+          : prevData[name].filter((v) => v !== value),
+      }));
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = (e) => {
-    console.log(data);
     e.preventDefault();
-    alert();
     setData([...data, formData]);
     setFormData(formVal);
   };
@@ -42,7 +60,7 @@ const Form = () => {
     <>
       <div className="container">
         <div className="form-one border rounded shadow mb-4 mt-4 text-center">
-          <h1 className=" mt-2" style={{color:'indigo'}}>SERVENT-VERIFICATION-FORM</h1>
+          <h1 className="mt-2" style={{color: 'indigo'}}>SERVENT-VERIFICATION-FORM</h1>
           <form
             onSubmit={handleSubmit}
             className=""
@@ -59,7 +77,7 @@ const Form = () => {
                     onChange={handleChange}
                     value={formData}
                     options={optionsList(field)}
-                    checked={setCheckValue}
+                    checked={formData}
                   />
                 ))}
               </div>
@@ -73,8 +91,7 @@ const Form = () => {
                     onChange={handleChange}
                     value={formData}
                     options={optionsList(field)}
-                    checked={setCheckValue}
-
+                    checked={formData}
                   />
                 ))}
               </div>
@@ -85,7 +102,7 @@ const Form = () => {
             >
               <button
                 type="submit"
-                className=" btn m-auto px-5 py-2 text-white "
+                className="btn m-auto px-5 py-2 text-white"
                 style={{ background: "#8883FD" }}
               >
                 Submit
