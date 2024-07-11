@@ -8,6 +8,7 @@ export const formVal = {
 "वर्ण":          '',
 "जन्म-स्थान":  '',
 "जन्म तिथि":     '',
+'Known works': '',
 "आयु (वर्ष/महीना)": '',
 "जन्म का वर्ष": '',
 "आयु सीमा (से-तक)": '',
@@ -22,27 +23,28 @@ export const formVal = {
 
 
 export const formfieldsarray = [
-  {name: "यूआईडी", type: 'text', title: 'यूआईडी', optionlabel: 'name' },
-  {name:'प्रथम नाम', type: 'text', title: 'प्रथम नाम', optionlabel: 'name' },
-  {name:  'मध्य नाम' , type: 'text', title: 'मध्य नाम', optionlabel: 'name' },
-  {name:  "अंतिम नाम" , type: 'text', title: 'अंतिम नाम', optionlabel: 'name' },
-  {name:  "लिंग", type: 'dropdown', title: 'लिंग', optionlabel: 'name' },
-  {name: "वर्ण", type: 'dropdown', title: 'वर्ण', optionlabel: 'name' },
-  {name: "जन्म - स्थान", type: 'text', title: 'जन्म - स्थान', optionlabel: 'name' },
-  {name: "जन्म तिथि" , type: 'date', title: 'जन्म तिथि', optionlabel: 'name' },  
+  {name: "यूआईडी", type: 'text', title: 'यूआईडी', optionlabel: 'name' , required: true },
+  {name:'प्रथम नाम', type: 'text', title: 'प्रथम नाम', optionlabel: 'name' , required: true },
+  {name:  'मध्य नाम' , type: 'text', title: 'मध्य नाम', optionlabel: 'name' , required: false  },
+  {name:  "अंतिम नाम" , type: 'text', title: 'अंतिम नाम', optionlabel: 'name' , required: true },
+  {name:  "लिंग", type: 'dropdown', title: 'लिंग', optionlabel: 'name'  , required: true},
+  {name: "वर्ण", type: 'dropdown', title: 'वर्ण', optionlabel: 'name' , required: false },
+  {name: "जन्म - स्थान", type: 'text', title: 'जन्म - स्थान', optionlabel: 'name' , required: true },
+  {name: "जन्म तिथि" , type: 'date', title: 'जन्म तिथि', optionlabel: 'name' , required: true },  
+  {name: "Known works" , type: 'check', title: 'Known works', optionlabel: 'Known works' , required: false },  
 ]
 
 export const formfieldsarray2 = [
 
-  {name: "आयु (वर्ष/महीना)", type: 'text', title: 'आयु (वर्ष/महीना)', optionlabel: 'name' },
-  {name: "जन्म का वर्ष", type: 'text', title: 'जन्म का वर्ष', optionlabel: 'name'  },
-  {name:   "आयु सीमा (से - तक)", type: 'text', title: 'आयु सीमा (से - तक)', optionlabel: 'name' },
-  {name: "लंबाई (सेमी)", type: 'text', title: "लंबाई (सेमी.)", optionlabel: 'name' },
-  {name: "गठन", type: 'dropdown', title: 'गठन', optionlabel: 'name' },
-  {name: "बालों का प्रकार", type: 'dropdown', title: 'बालों का प्रकार', optionlabel: 'name' },
+  {name: "आयु (वर्ष/महीना)", type: 'text', title: 'आयु (वर्ष/महीना)', optionlabel: 'name', required: false },
+  {name: "जन्म का वर्ष", type: 'text', title: 'जन्म का वर्ष', optionlabel: 'name', required: false  },
+  {name: "आयु सीमा (से - तक)", type: 'text', title: 'आयु सीमा (से - तक)', optionlabel: 'name', required: false },
+  {name: "लंबाई (सेमी)", type: 'text', title: "लंबाई (सेमी.)", optionlabel: 'name', required: true },
+  {name: "गठन", type: 'dropdown', title: 'गठन', optionlabel: 'name', required: false },
+  {name: "बालों का प्रकार", type: 'dropdown', title: 'बालों का प्रकार', optionlabel: 'name', required: false },
   {name: "आँखों के प्रकार", type: 'dropdown', title: 'आँखों के प्रकार', optionlabel: 'name' },
-  {name: "पहचान चिन्ह", type: 'dropdown', title: 'पहचान चिन्ह', optionlabel: 'name' },
-  {name: "ज्ञात भाषाएँ", type: 'dropdown', title: 'ज्ञात भाषाएँ', optionlabel: 'name' },
+  {name: "पहचान चिन्ह", type: 'dropdown', title: 'पहचान चिन्ह', optionlabel: 'name', required: true },
+  {name: "ज्ञात भाषाएँ", type: 'dropdown', title: 'ज्ञात भाषाएँ', optionlabel: 'name' , required: false},
 ]
 
 export const sex = [
