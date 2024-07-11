@@ -1,9 +1,11 @@
 import React from "react";
+import './Showdata.css'
+// import './App.css';
 
 const Showdata = ({ data }) => {
   console.log(data)
   return (
-    <table className="">
+    <table className="tables border">
       <thead className="">
         <tr className="">
           
@@ -28,7 +30,7 @@ const Showdata = ({ data }) => {
       </thead>
       <tbody className="bg-dark">
         {data.map((item, index) => (
-          <tr key={index} style={{}}>
+          <tr key={index} style={{background: index%2 === 0? "white": '#eee'}} >
 
             <td>{item.यूआईडी}</td>
             <td>{item["प्रथम नाम"]}</td>

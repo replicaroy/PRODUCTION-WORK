@@ -18,6 +18,7 @@ const Form = () => {
   const handleSubmit = (e) => {
     console.log(data);
     e.preventDefault();
+    alert()
     setData([...data, formData]);
     setFormData(formVal);
   };
@@ -25,8 +26,10 @@ const Form = () => {
   return (
     <>
       <div className="container"> 
-        <div className="form-one border rounded py-2">
-          <form onSubmit={handleSubmit} className="d-flex gap-5" style={{padding: '50px 120px'}}>
+        <div className="form-one  py-2 mb-2 text-center">
+      <h1 className="text-danger">SERVENT-VERIFICATION-FORM</h1>
+          <form onSubmit={handleSubmit} className="" style={{padding: '20px 50px', }}>
+          <div className="form-control d-flex gap-5 text-center">
             <div className="form-fields w-50">
               {formfieldsarray.map((field) => (
                 <Input
@@ -34,7 +37,7 @@ const Form = () => {
                   field={field}
                   name={field.name}
                   title={field.title}
-                  onChange={(e) => handleChange(e, field.name)}
+                  onChange={handleChange}
                   value={formData}
                   options={optionsList(field)}
                 />
@@ -47,16 +50,19 @@ const Form = () => {
                   field={field}
                   name={field.name}
                   title={field.title}
-                  onChange={(e) => handleChange(e, field.name)}
+                  onChange={handleChange}
                   value={formData}
                   options={optionsList(field)}
                 />
               ))}
             </div>
-          </form>
-            <div className="btn-div text-center mt- -5">
-              <button type="submit" className=" btn m-auto px-5 py-2 text-white bg-success">Submit</button>
             </div>
+            <div className="btn-div text-center" style={{margin: '20px 0 0 0 '}}>   
+             <button type="submit" className=" btn m-auto px-5 py-2 text-white " style={{background:'#8883FD'}} >
+             Submit
+             </button>
+            </div>
+          </form>
         </div>
 
         <div className="form-one">

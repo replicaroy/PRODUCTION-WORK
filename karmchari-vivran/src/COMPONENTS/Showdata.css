@@ -1,0 +1,6 @@
+.tables thead th{
+padding: 10px; font-size: 12px; background-color: #4E7794; color: white;
+}
+.tables tbody td{
+ font-size: 12px; padding: 10px;
+}

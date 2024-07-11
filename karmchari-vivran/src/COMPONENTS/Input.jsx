@@ -15,14 +15,15 @@ const Input = ({ field, onChange, value, options }) => {
     <div className="">
     <Label field={field}  >    
       {["यूआईडी", "प्रथम नाम", "मध्य नाम", "अंतिम नाम", "जन्म - स्थान", "आयु (वर्ष/महीना)", "लंबाई (सेमी)", "जन्म का वर्ष", "आयु सीमा (से - तक)"].includes(field.name) ? (
-        <InputText value={value?.[field.name]} onChange={handleChange} name={field.name} className="" style={{width: '300px', marginTop: 20}}   />
+        <InputText value={value?.[field.name]} onChange={handleChange} name={field.name} 
+        className="" style={{width: '300px', marginTop: 10, padding: '5px 0 5px 10px'  }}   />
       ) : null}
      
 
       {["गठन", "लिंग", "वर्ण", "बालों का प्रकार", "आँखों के प्रकार", "पहचान चिन्ह", "ज्ञात भाषाएँ"].includes(field.name) ? (
         <Dropdown
           className=""
-          style={{width: '300px' , marginTop: 20}}
+          style={{width: '300px' , marginTop: 10, padding: '5px 0 5px 10px'  }}
           optionLabel="name"
            optionValue="name"
           options={options}
@@ -34,7 +35,7 @@ const Input = ({ field, onChange, value, options }) => {
       {field.type ==='date' ? (        
         <Calendar 
         className=""
-          style={{width: '300px' , marginTop: 20}}       
+          style={{width: '300px' , marginTop: 10, padding: '5px 0 5px 10px'  }}       
           name={field.name}
           onChange={handleChange}
           value={value?.[field.name]} 
