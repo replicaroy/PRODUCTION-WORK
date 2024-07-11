@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
 
-const Label = () => {
+const Label = ({ field, children }) => {
   return (
-    <div>
-    <label htmlFor=""></label>
-      
+    <div className="form-group">
+      <label htmlFor={field.name} className="" style={{minWidth: '140px' }}>
+        {field.title}
+      </label>
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default Label
+export default Label;

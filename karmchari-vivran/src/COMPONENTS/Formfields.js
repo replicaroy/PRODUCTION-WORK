@@ -1,17 +1,16 @@
 
 export const formVal = {  
-"यूआईडी": '',
-'प्रथम नाम': '',
-'मध्य नाम': '',
-"अंतिम नाम": '',
-"लिंग": '',
-"वर्ण": '',
-"जन्म - स्थान": '',
-"जन्म तिथि": '',
+"यूआईडी":     '',
+'प्रथम नाम':    '',
+'मध्य नाम':     '',
+"अंतिम नाम":    '',
+"लिंग":         '',
+"वर्ण":          '',
+"जन्म-स्थान":  '',
+"जन्म तिथि":     '',
 "आयु (वर्ष/महीना)": '',
 "जन्म का वर्ष": '',
-"आयु सीमा(से - तक)": '',
-"यूआईडी": '',
+"आयु सीमा (से-तक)": '',
 "लंबाई (सेमी)": '',
 "गठन": '',
 "बालों का प्रकार": '',
@@ -21,25 +20,29 @@ export const formVal = {
 }
 
 
+
 export const formfieldsarray = [
-  { name: "यूआईडी", type: 'name', title: 'name', optionlabel: 'name' },
-  { name:'प्रथम नाम', type: 'name', title: 'name', optionlabel: 'name' },
-  {name:  'मध्य नाम' , type: 'name', title: 'name', optionlabel: 'name' },
-  {name:  "अंतिम नाम" , type: 'name', title: 'name', optionlabel: 'name' },
-  {name:  "लिंग", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "वर्ण", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "जन्म - स्थान", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "जन्म तिथि" , type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "आयु (वर्ष/महीना)", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "जन्म का वर्ष", type: 'name', title: 'name', optionlabel: 'name'  },
-  {name:   "आयु सीमा(से - तक)", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "यूआईडी", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "लंबाई (सेमी)", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "गठन", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "बालों का प्रकार", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "आँखों के प्रकार", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "पहचान चिन्ह", type: 'name', title: 'name', optionlabel: 'name' },
-  {name: "ज्ञात भाषाएँ", type: 'name', title: 'name', optionlabel: 'name' },
+  {name: "यूआईडी", type: 'text', title: 'यूआईडी', optionlabel: 'name' },
+  {name:'प्रथम नाम', type: 'text', title: 'प्रथम नाम', optionlabel: 'name' },
+  {name:  'मध्य नाम' , type: 'text', title: 'मध्य नाम', optionlabel: 'name' },
+  {name:  "अंतिम नाम" , type: 'text', title: 'अंतिम नाम', optionlabel: 'name' },
+  {name:  "लिंग", type: 'dropdown', title: 'लिंग', optionlabel: 'name' },
+  {name: "वर्ण", type: 'dropdown', title: 'वर्ण', optionlabel: 'name' },
+  {name: "जन्म - स्थान", type: 'text', title: 'जन्म - स्थान', optionlabel: 'name' },
+  {name: "जन्म तिथि" , type: 'date', title: 'जन्म तिथि', optionlabel: 'name' },  
+]
+
+export const formfieldsarray2 = [
+
+  {name: "आयु (वर्ष/महीना)", type: 'text', title: 'आयु (वर्ष/महीना)', optionlabel: 'name' },
+  {name: "जन्म का वर्ष", type: 'text', title: 'जन्म का वर्ष', optionlabel: 'name'  },
+  {name:   "आयु सीमा (से - तक)", type: 'text', title: 'आयु सीमा (से - तक)', optionlabel: 'name' },
+  {name: "लंबाई (सेमी)", type: 'text', title: "लंबाई (सेमी.)", optionlabel: 'name' },
+  {name: "गठन", type: 'dropdown', title: 'गठन', optionlabel: 'name' },
+  {name: "बालों का प्रकार", type: 'dropdown', title: 'बालों का प्रकार', optionlabel: 'name' },
+  {name: "आँखों के प्रकार", type: 'dropdown', title: 'आँखों के प्रकार', optionlabel: 'name' },
+  {name: "पहचान चिन्ह", type: 'dropdown', title: 'पहचान चिन्ह', optionlabel: 'name' },
+  {name: "ज्ञात भाषाएँ", type: 'dropdown', title: 'ज्ञात भाषाएँ', optionlabel: 'name' },
 ]
 
 export const sex = [
@@ -58,6 +61,19 @@ export const colourTypes = [
   {name: 'साफ/गोरा - विदेशी प्रकार ', value: 'साफ/गोरा - विदेशी प्रकार '},
   {name: 'हलका पीला ', value: 'हलका पीला '}
 ]
+
+export   const optionsList = (field) => {
+  switch (field.name) {
+    case 'पहचान चिन्ह': return recogniseMarks;
+    case 'लिंग': return sex;
+    case 'वर्ण': return colourTypes;
+    case 'गठन': return bodyTypes;
+    case 'बालों का प्रकार': return hairTypes;
+    case 'आँखों के प्रकार': return eyeTypes;
+    case 'ज्ञात भाषाएँ': return languages;
+    default: return [];
+  }
+};
 
 export const bodyTypes = [
 
@@ -121,89 +137,10 @@ export const languages = [
     {name: 'अपातनी', value: '56'},
     {name: 'अवधी', value: '2'},
     {name: 'असमियां', value: '1'},
-    {name: 'अहिरानी', value: '85'},
-    {name: 'आऊ', value: '87'},
-    {name: 'आदिवासी', value: '83'},
-    {name: 'उड़िया', value: '39'},
-    {name: 'उर्दू', value: '51'},
-    {name: 'कच्छी', value: '24'},
-    {name: 'कन्नड़', value: '19'},
-    {name: 'कश्मीरी', value: '20'},
-    {name: 'काकबरक', value: '78'},
-    {name: 'कुई', value: '25'},
-    {name: 'कुमाउंनी', value: '26'},
-    {name: 'कूकी', value: '108'},
-    {name: 'कैकड़ी', value: '104'},
-    {name: 'कोंकणी', value: '22'},
-    {name: 'कोंयक', value: '90'},
-    {name: 'कोठा', value: '23'},
-    {name: 'कोया', value: '111'},
-    {name: 'कोरापुटी', value: '110'},
-    {name: 'खमती', value: '60'},
-    {name: 'अंगामि', value: '86'},
-    {name: 'खासी', value: '21'},
-    {name: 'खोआ', value: '61'},
-    {name: 'ख्यामुन्गन', value: '91'},
-    {name: 'गढ़वाली', value: '15'},
-    {name: 'गारो', value: '112'},
-    {name: 'गुजराती', value: '16'},
-    {name: 'चक्खसंग', value: '89'},
-    {name: 'चेंग', value: '88'},
-    {name: 'छत्तीसगढ़ी', value: '10'},
-    {name: 'जलियांग', value: '102'},
-    {name: 'जैन्तिया', value: '82'},
-    {name: 'टुलू', value: '50'},
-    {name: 'टेंगखुल', value: '100'},
-    {name: 'टोडा', value: '49'},
-    {name: 'डोंगरी', value: '13'},
-    {name: 'तंगसा', value: '76'},
-    {name: 'तमिल', value: '47'},
-    {name: 'तागिन', value: '74'},
-    {name: 'तेलुगू', value: '48'},
-    {name: 'दिमासा', value: '12'},
-    {name: 'देयोरी', value: '57'},
-    {name: 'धुंधड़ी', value: '11'},
-    {name: 'नागामीस', value: '79'},
-    {name: 'निशी', value: '69'},
-    {name: 'नेपाली', value: '38'},
-    {name: 'नोक्टे', value: '70'},
-    {name: 'पंजाबी', value: '40'},
-    {name: 'परधी', value: '105'},
-    {name: 'पवारी', value: '106'},
-    {name: 'पहाड़ी', value: '41'},
-    {name: 'पोचुरी', value: '95'},
-    {name: 'फोम', value: '94'},
-    {name: 'बांगला', value: '5'},
-    {name: 'बागंनी', value: '68'},
-    {name: 'बागड़ी', value: '4'},
-    {name: 'बाडगा', value: '3'},
-    {name: 'बुदेंलखंडी', value: '9'},
-    {name: 'बृज', value: '8'},
-    {name: 'बोडो', value: '7'},
-    {name: 'भिलाऊ', value: '84'},
-    {name: 'भोजपुरी', value: '6'},
-    {name: 'मणिपुरी', value: '31'},
-    {name: 'मराठी', value: '32'},
-    {name: 'मलयालम', value: '29'},
-    {name: 'माओ', value: '93'},
-    {name: 'मारवाड़ी', value: '33'},
-    {name: 'मालवी', value: '30'},
-    {name: 'मिजो', value: '53'},
-    {name: 'मिशिंग', value: '63'},
-    {name: 'मीजी', value: '62'},
-    {name: 'मीरन और बुलंदास', value: '34'},
-    {name: 'मीशीमी इदु', value: '66'},
-    {name: 'मीशीमी दिगारु', value: '65'},
-    {name: 'मीशीमी मिजु', value: '67'},
-    {name: 'मेटेलियन', value: '36'},
-    {name: 'मेम्बा', value: '59'},
-    {name: 'मेवाती', value: '113'},
-    {name: 'मैटी', value: '35'},
-    {name: 'मैथिली', value: '28'},  
-
 ]
 
-  
+
+
 
 
 
