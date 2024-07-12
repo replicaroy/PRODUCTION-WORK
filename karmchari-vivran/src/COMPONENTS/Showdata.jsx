@@ -1,6 +1,5 @@
 import React from "react";
 import './Showdata.css'
-// import './App.css';
 
 const Showdata = ({ data }) => {
   console.log(data)
@@ -17,6 +16,7 @@ const Showdata = ({ data }) => {
           <th>वर्ण</th>
           <th>जन्म - स्थान</th>
           <th>जन्म तिथि</th>
+          <th>Known works</th>
           <th>आयु (वर्ष/महीना)</th>
           <th>आयु सीमा (से - तक)</th>
           <th>जन्म का वर्ष</th>
@@ -26,11 +26,12 @@ const Showdata = ({ data }) => {
           <th>आँखों के प्रकार</th>
           <th>पहचान चिन्ह</th>
           <th>ज्ञात भाषाएँ</th>
+          <th>Checked Values</th> {/* Add a new column for checkbox values */}
         </tr>
       </thead>
       <tbody className="bg-dark">
         {data.map((item, index) => (
-          <tr key={index} style={{background: index%2 === 0? "white": '#eee'}} >
+          <tr key={index} style={{background: index % 2 === 0 ? "white" : '#eee'}} >
 
             <td>{item.यूआईडी}</td>
             <td>{item["प्रथम नाम"]}</td>
@@ -39,7 +40,8 @@ const Showdata = ({ data }) => {
             <td>{item.लिंग}</td>
             <td>{item.वर्ण}</td>
             <td>{item["जन्म - स्थान"]}</td>
-            <td>{item["जन्म तिथि "]}</td>
+            <td>{item["जन्म तिथि"]}</td>
+            <td>{item["Known works"]}</td>
             <td>{item["आयु (वर्ष/महीना)"]}</td>
             <td>{item["आयु सीमा(से - तक)"]}</td>
             <td>{item["जन्म का वर्ष"]}</td>
@@ -49,6 +51,7 @@ const Showdata = ({ data }) => {
             <td>{item["आँखों के प्रकार"]}</td>
             <td>{item["पहचान चिन्ह"]}</td>
             <td>{item["ज्ञात भाषाएँ"]}</td>
+            <td>{item.checkVal.join(', ')}</td> {/* Display checkbox values */}
           </tr>
         ))}
       </tbody>
@@ -57,3 +60,4 @@ const Showdata = ({ data }) => {
 };
 
 export default Showdata;
+

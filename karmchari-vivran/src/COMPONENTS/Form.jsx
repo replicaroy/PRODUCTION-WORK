@@ -1,66 +1,46 @@
 import React, { useState } from "react";
-import {
-  formfieldsarray,
-  formfieldsarray2,
-  optionsList,
-  // other imports
-} from "./Formfields";
+import { formVal, formfieldsarray, formfieldsarray2, optionsList, checkfields } from "./Formfields";
 import Input from "./Input";
 import Showdata from "./Showdata";
-
-export const formVal = {
-  "यूआईडी": '',
-  'प्रथम नाम': '',
-  'मध्य नाम': '',
-  "अंतिम नाम": '',
-  "लिंग": '',
-  "वर्ण": '',
-  "जन्म-स्थान": '',
-  "जन्म तिथि": '',
-  'Known works': [],
-  "आयु (वर्ष/महीना)": '',
-  "जन्म का वर्ष": '',
-  "आयु सीमा (से-तक)": '',
-  "लंबाई (सेमी)": '',
-  "गठन": '',
-  "बालों का प्रकार": '',
-  "आँखों के प्रकार": '',
-  "पहचान चिन्ह": '',
-  "ज्ञात भाषाएँ": '',
-};
 
 const Form = () => {
   const [formData, setFormData] = useState(formVal);
   const [data, setData] = useState([]);
+  const [checkVal, setCheckVal] = useState([]);
+
+  const handleCheck = (e) => {
+    const value = e.target.value;
+    const checked = e.target.checked;
+    
+    if (checked) {
+      setCheckVal([
+        ...checkVal, value
+      ]);
+    } else {
+      setCheckVal(checkVal.filter((checked) => checked !== value));
+    }
+  };
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === "checkbox") {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: checked
-          ? [...prevData[name], value]
-          : prevData[name].filter((v) => v !== value),
-      }));
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-    }
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData([...data, formData]);
+    setData([...data, { ...formData, checkVal }]);
     setFormData(formVal);
+    setCheckVal([]); // Reset checkboxes after submit
   };
 
   return (
     <>
       <div className="container">
         <div className="form-one border rounded shadow mb-4 mt-4 text-center">
-          <h1 className="mt-2" style={{color: 'indigo'}}>SERVENT-VERIFICATION-FORM</h1>
+          <h1 className="mt-2" style={{ color: 'indigo' }}>SERVENT-VERIFICATION-FORM</h1>
           <form
             onSubmit={handleSubmit}
             className=""
@@ -77,7 +57,9 @@ const Form = () => {
                     onChange={handleChange}
                     value={formData}
                     options={optionsList(field)}
-                    checked={formData}
+                    checked={checkVal}
+                    checkfields={checkfields}
+                    handleCheck={handleCheck}
                   />
                 ))}
               </div>
@@ -91,15 +73,14 @@ const Form = () => {
                     onChange={handleChange}
                     value={formData}
                     options={optionsList(field)}
-                    checked={formData}
+                    checked={checkVal}
+                    checkfields={checkfields}
+                    handleCheck={handleCheck}
                   />
                 ))}
               </div>
             </div>
-            <div
-              className="btn-div text-center"
-              style={{ margin: "20px 0 0 0 " }}
-            >
+            <div className="btn-div text-center" style={{ margin: "20px 0 0 0 " }}>
               <button
                 type="submit"
                 className="btn m-auto px-5 py-2 text-white"

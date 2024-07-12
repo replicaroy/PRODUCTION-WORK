@@ -8,7 +8,7 @@ export const formVal = {
 "वर्ण":          '',
 "जन्म-स्थान":  '',
 "जन्म तिथि":     '',
-'Known works': '',
+'Known works': [],
 "आयु (वर्ष/महीना)": '',
 "जन्म का वर्ष": '',
 "आयु सीमा (से-तक)": '',
@@ -20,7 +20,12 @@ export const formVal = {
 "ज्ञात भाषाएँ": '',
 }
 
-
+export const checkfields = [
+  {id: 1, name: "works",  value: 'Cooking'},
+  {id: 2, name: "works",  value: 'Cleaning'},
+  {id: 3 ,name: "works",  value: 'Driving'},
+  {id: 4, name: "works",  value: 'Gardening'},
+]
 
 export const formfieldsarray = [
   {name: "यूआईडी", type: 'text', title: 'यूआईडी', optionlabel: 'name' , required: true },
@@ -129,16 +134,13 @@ export const recogniseMarks = [
 ]
 
 export const languages = [
-    {name: 'अंग्रेजी', value: '14'},
-    {name: 'अंग्रेजी', value: '14'},
-    {name: 'अंग्रेजी', value: '14'},
-    {name: 'अंग्रेजी', value: '14'},
-    {name: 'अका', value: '55'},
-    {name: 'अदि', value: '54'},
-    {name: 'अन्‍य क्षेत्रिय भाषा', value: '115'},
-    {name: 'अपातनी', value: '56'},
-    {name: 'अवधी', value: '2'},
-    {name: 'असमियां', value: '1'},
+    {name: 'अंग्रेजी', value: 'अंग्रेजी'},
+    {name: 'अका', value: 'अका'},
+    {name: 'अदि', value: 'अदि'},
+    {name: 'अन्‍य क्षेत्रिय भाषा', value: 'अन्‍य क्षेत्रिय भाषा'},
+    {name: 'अपातनी', value: 'अपातनी'},
+    {name: 'अवधी', value: 'अवधी'},
+    {name: 'असमियां', value: 'असमियां'},
 ]
 
 

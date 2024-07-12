@@ -5,11 +5,7 @@ import { Calendar } from "primereact/calendar";
 import { Checkbox } from "primereact/checkbox";
 import Label from "./Label";
 
-const Input = ({ field, onChange, value, options, checked }) => {
-  const handleChange = (e) => {
-    onChange(e, field.name);
-  };
-
+const Input = ({ field, onChange, value, options, checked, checkfields, handleCheck }) => {
   return (
     <div className="">
       <Label field={field}>
@@ -26,7 +22,7 @@ const Input = ({ field, onChange, value, options, checked }) => {
         ].includes(field.name) ? (
           <InputText
             value={value?.[field.name]}
-            onChange={handleChange}
+            onChange={onChange}
             name={field.name}
             className=""
             style={{ width: "300px", marginTop: 10, padding: "5px 0 5px 10px" }}
@@ -48,7 +44,7 @@ const Input = ({ field, onChange, value, options, checked }) => {
             optionValue="name"
             options={options}
             name={field.name}
-            onChange={handleChange}
+            onChange={onChange}
             value={value?.[field.name]}
           />
         ) : null}
@@ -57,37 +53,24 @@ const Input = ({ field, onChange, value, options, checked }) => {
             className=""
             style={{ width: "300px", marginTop: 10, padding: "5px 0 5px 10px" }}
             name={field.name}
-            onChange={handleChange}
+            onChange={onChange}
             value={value?.[field.name]}
           />
         ) : null}
-       
-        {field.type === "check" ? (
-          <div>
-            <Checkbox
-              inputId={`work-${field.name}`}
-              name={field.name}
-              value={field.name}            
-              onChange={handleChange}
-              checked={checked?.[field.name]?.includes(field.name)}
-            />
-          <span>Food</span>
-          </div>
-        ) : null}
 
-        {field.type === "check" ? (
-          <div>
-            <Checkbox
-              inputId={`Clean-${field.name}`}
-              name={field.name}
-              value={field.name}            
-              onChange={handleChange}
-              checked={checked?.[field.name]?.includes(field.name)}
-            />
-          <span>Clean</span>
+        {field.type === 'check' ?
+          <div className="">
+            {checkfields.map((chk)=> (
+              <Checkbox  
+                key={chk.value}
+                onChange={handleCheck} 
+                name={chk.name} 
+                value={chk.value}
+                checked={checked.includes(chk.value)} 
+              />
+            ))}
           </div>
-        ) : null}
-        
+        : null}       
       </Label>
     </div>
   );
