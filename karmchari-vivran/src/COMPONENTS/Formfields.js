@@ -1,4 +1,5 @@
 
+
 export const formVal = {  
 "यूआईडी":     '',
 'प्रथम नाम':    '',
@@ -9,6 +10,7 @@ export const formVal = {
 "जन्म-स्थान":  '',
 "जन्म तिथि":     '',
 'Known works': [],
+'work prefrence': '',
 "आयु (वर्ष/महीना)": '',
 "जन्म का वर्ष": '',
 "आयु सीमा (से-तक)": '',
@@ -24,7 +26,14 @@ export const checkfields = [
   {id: 1, name: "works",  value: 'Cooking'},
   {id: 2, name: "works",  value: 'Cleaning'},
   {id: 3 ,name: "works",  value: 'Driving'},
-  {id: 4, name: "works",  value: 'Gardening'},
+  // {id: 4, name: "works",  value: 'Gardening'},
+]
+
+const workPreferences = [
+  {id: 1, name: "workp",  value: 'Day'},
+  {id: 2, name: "workp",  value: 'Night'},
+  {id: 3 ,name: "workp",  value: 'Day-Night'},
+  // {id: 4, name: "works",  value: 'Gardening'},
 ]
 
 export const formfieldsarray = [
@@ -37,6 +46,7 @@ export const formfieldsarray = [
   {name: "जन्म - स्थान", type: 'text', title: 'जन्म - स्थान', optionlabel: 'name' , required: true },
   {name: "जन्म तिथि" , type: 'date', title: 'जन्म तिथि', optionlabel: 'name' , required: true },  
   {name: "Known works" , type: 'check', title: 'Known works', optionlabel: 'Known works' , required: true },  
+  {name: 'work prefrence' , type: 'radio', title: 'work prefrence', optionlabel: 'work prefrence' , required: true },  
 ]
 
 export const formfieldsarray2 = [

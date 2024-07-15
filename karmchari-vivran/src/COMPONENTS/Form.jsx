@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { formVal, formfieldsarray, formfieldsarray2, optionsList, checkfields } from "./Formfields";
+import { formVal, formfieldsarray, formfieldsarray2, optionsList, checkfields, } from "./Formfields";
 import Input from "./Input";
 import Showdata from "./Showdata";
 
@@ -7,6 +7,21 @@ const Form = () => {
   const [formData, setFormData] = useState(formVal);
   const [data, setData] = useState([]);
   const [checkVal, setCheckVal] = useState([]);
+  const [ workPreference, setworkPreference] = useState()
+
+ const workPreferences = [
+    {id: 1, name: "workp",  value: 'Day'},
+    {id: 2, name: "workp",  value: 'Night'},
+    {id: 3 ,name: "workp",  value: 'Day-Night'},
+    // {id: 4, name: "works",  value: 'Gardening'},
+  ]
+  
+
+  const workingTime = (e)=> {   
+    const checked  = e.target.value;
+    setworkPreference(checked)
+    console.log( workPreference);
+  }
 
   const handleCheck = (e) => {
     const value = e.target.value;
@@ -31,9 +46,16 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData([...data, { ...formData, checkVal }]);
-    setFormData(formVal);
-    setCheckVal([]); // Reset checkboxes after submit
+    if(formVal.name){
+      alert()
+      return;
+    }
+    else{
+      setData([...data, { ...formData, checkVal, workPreference }]);
+      setFormData(formVal);
+      setCheckVal([]);
+      setworkPreference('');
+    }
   };
 
   return (
@@ -60,6 +82,9 @@ const Form = () => {
                     checked={checkVal}
                     checkfields={checkfields}
                     handleCheck={handleCheck}
+                    workingTime={workingTime}
+                    workPreferences={workPreferences}
+                    workPreference={workPreference}
                   />
                 ))}
               </div>

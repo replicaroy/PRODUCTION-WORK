@@ -4,8 +4,20 @@ import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 import { Checkbox } from "primereact/checkbox";
 import Label from "./Label";
+import { RadioButton } from "primereact/radiobutton";
 
-const Input = ({ field, onChange, value, options, checked, checkfields, handleCheck }) => {
+const Input = ({
+  field,
+  onChange,
+  value,
+  options,
+  checked,
+  checkfields,
+  handleCheck,
+  workingTime,
+  workPreferences,
+  workPreference,
+}) => {
   return (
     <div className="">
       <Label field={field}>
@@ -54,23 +66,49 @@ const Input = ({ field, onChange, value, options, checked, checkfields, handleCh
             style={{ width: "300px", marginTop: 10, padding: "5px 0 5px 10px" }}
             name={field.name}
             onChange={onChange}
-            value={value?.[field.name]}
+            value={value?.[field.name]?? ''}
           />
         ) : null}
 
-        {field.type === 'check' ?
-          <div className="">
-            {checkfields.map((chk)=> (
-              <Checkbox  
-                key={chk.value}
-                onChange={handleCheck} 
-                name={chk.name} 
-                value={chk.value}
-                checked={checked.includes(chk.value)} 
-              />
+        {field.type === "check" ? (
+          <div
+            className="w-50 "
+            style={{ display: "inline-flex",marginTop: 10,  gap: "20px", width: "100%" }}
+          >
+            {checkfields.map((chk) => (
+              <label htmlFor={chk.name}>
+                {" "}
+                {chk.value}
+                <Checkbox                
+                  key={chk.value}
+                  onChange={handleCheck}
+                  name={chk.name}
+                  value={chk.value}
+                  checked={checked.includes(chk.value)}
+                />
+              </label>
             ))}
           </div>
-        : null}       
+        ) : null}
+
+        {field.type === "radio"
+          ? workPreferences.map((wp) => (
+              <label htmlFor={wp.name}  
+            style={{ display: "inline-flex",marginTop: 20, }}
+              
+              >
+                
+                {wp.value}
+                <RadioButton
+                  inputId={wp.id}
+                  name={wp.name}
+                  value={wp.value}
+                  onChange={workingTime}
+                  checked={workPreference === wp.value}
+                />
+              </label>
+            ))
+          : null}
       </Label>
     </div>
   );
