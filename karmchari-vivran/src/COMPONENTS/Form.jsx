@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { formVal, formfieldsarray, formfieldsarray2, optionsList, checkfields, } from "./Formfields";
+import { formVal, formfieldsarray, formfieldsarray2, optionsList,  } from "./Formfields";
 import Input from "./Input";
 import Showdata from "./Showdata";
 
@@ -7,25 +7,27 @@ const Form = () => {
   const [formData, setFormData] = useState(formVal);
   const [data, setData] = useState([]);
   const [checkVal, setCheckVal] = useState([]);
-  const [ workPreference, setworkPreference] = useState()
+  const [workPreference, setworkPreference] = useState()
 
- const workPreferences = [
+  // radiobutton
+  const workPreferences = [
     {id: 1, name: "workp",  value: 'Day'},
     {id: 2, name: "workp",  value: 'Night'},
     {id: 3 ,name: "workp",  value: 'Day-Night'},
-    // {id: 4, name: "works",  value: 'Gardening'},
-  ]
-  
-
+  ]  
   const workingTime = (e)=> {   
-    const checked  = e.target.value;
-    setworkPreference(checked)
-    console.log( workPreference);
+    setworkPreference(e.target.value)
   }
 
+// checkbox
+   const checkfields = [
+    {id: 1, name: "works",  value: 'Cooking'},
+    {id: 2, name: "works",  value: 'Cleaning'},
+    {id: 3 ,name: "works",  value: 'Driving'},
+  ]
   const handleCheck = (e) => {
     const value = e.target.value;
-    const checked = e.target.checked;
+    const checked = e.target.checked; 
     
     if (checked) {
       setCheckVal([
@@ -36,6 +38,7 @@ const Form = () => {
     }
   };
 
+  // handleform
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -44,6 +47,8 @@ const Form = () => {
     });
   };
 
+
+  //handlesubmit
   const handleSubmit = (e) => {
     e.preventDefault();
     if(formVal.name){
@@ -118,7 +123,7 @@ const Form = () => {
         </div>
 
         <div className="form-one">
-          <Showdata data={data} />
+          <Showdata data={data} formfieldsarray={formfieldsarray} formfieldsarray2={formfieldsarray2} />
         </div>
       </div>
     </>

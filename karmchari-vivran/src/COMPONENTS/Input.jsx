@@ -77,7 +77,6 @@ const Input = ({
           >
             {checkfields.map((chk) => (
               <label htmlFor={chk.name}>
-                {" "}
                 {chk.value}
                 <Checkbox                
                   key={chk.value}
@@ -94,7 +93,7 @@ const Input = ({
         {field.type === "radio"
           ? workPreferences.map((wp) => (
               <label htmlFor={wp.name}  
-            style={{ display: "inline-flex",marginTop: 20, }}
+            style={{ display: "inline-flex", marginLeft: 10, gap: 10 }}
               
               >
                 

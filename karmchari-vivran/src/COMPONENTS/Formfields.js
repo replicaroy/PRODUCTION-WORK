@@ -1,6 +1,6 @@
 
 
-export const formVal = {  
+export const formVal =  {  
 "यूआईडी":     '',
 'प्रथम नाम':    '',
 'मध्य नाम':     '',
