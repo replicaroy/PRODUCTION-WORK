@@ -22,6 +22,19 @@ export const PersonDeatails = [
 
 ];
 
+export const optionsList = (field) => {
+ if (field.name === 'लिंग') {
+    return sex;
+  } else if (field.name === "वर्ण प्रकार") {
+    return colourTypes;
+  } else if (field.name === "संबंध प्रकार") {
+    return relationType;
+  } else {
+    return [];
+  }
+};
+
+
 export const sex = [
   { name: "Male", value: "male" },
   { name: "Female", value: "female" },
@@ -29,8 +42,17 @@ export const sex = [
   { name: "Transgender", value: "transgender" },
 ];
 
+export const relationType = [
+  // { name: "-----चयन-----", value: "-----चयन-----" },
+  { name: "अभिभावक", value: "अभिभावक" },
+  { name: "पति", value: "पति" },
+  { name: "पत्नी", value: "पत्नी" },
+  { name: "पिता", value: "पिता" },
+  { name: "मां", value: "मां" },
+];
+
 export const colourTypes = [
-  { name: "-----चयन-----", vlaue: "-----चयन-----" },
+  // { name: "-----चयन-----", vlaue:  },
   { name: "गहरा भूरा ", value: "गहरा भूरा " },
   { name: " साफ/गोरा", value: "साफ/गोरा " },
   { name: "गहरा काला ", value: "गहरा काला " },
@@ -70,7 +92,7 @@ export const formfieldsarray = [
     {name:  "अंतिम नाम" , type: 'text', title: 'अंतिम नाम', optionlabel: 'name' , required: true },
     {name:  "लिंग", type: 'dropdown', title: 'लिंग', optionlabel: 'name'  , required: true},
     {name: "संबंध प्रकार" , type: 'dropdown', title: 'संबंध प्रकार', optionlabel: 'name' , required: true },  
-    {name: "संबंधी का नाम" , type: 'date', title: 'संबंधी का नाम', optionlabel: 'name' , required: true }, 
+    {name: "संबंधी का नाम" , type: 'text', title: 'संबंधी का नाम', optionlabel: 'name' , required: true }, 
     {name: "वर्ण प्रकार", type: 'dropdown', title: 'वर्ण प्रकार', optionlabel: 'name' , required: false },
     // {name: "जन्म - स्थान", type: 'text', title: 'जन्म - स्थान', optionlabel: 'name' , required: true },
     {name: "पहचान के मार्क" , type: 'text', title: 'पहचान के मार्क', optionlabel: 'name' , required: true },  
@@ -86,7 +108,7 @@ export const formfieldsarray2 = [
     {name: "जन्म का वर्ष", type: 'text', title: 'जन्म का वर्ष', optionlabel: 'name', required: false  },
     {name: "आयु सीमा (से - तक)", type: 'text', title: 'आयु सीमा (से - तक)', optionlabel: 'name', required: false },
 
-    {name: "ईमेल आईडी", type: 'email', title: 'ईमेल आईडी', optionlabel: 'name' },
+    {name: "ईमेल आईडी", type: 'text', title: 'ईमेल आईडी', optionlabel: 'name' },
     // {name: "लंबाई (सेमी)", type: 'text', title: "लंबाई (सेमी.)", optionlabel: 'name', required: true },
     {name: "ऊंचाई कम सीमा", type: 'text', title: "ऊंचाई कम सीमा", optionlabel: 'name', required: true },
     {name: "ऊंचाई ऊपरी सीमा", type: 'text', title: "ऊंचाई ऊपरी सीमा", optionlabel: 'name', required: true },

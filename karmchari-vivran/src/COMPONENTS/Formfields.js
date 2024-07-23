@@ -79,6 +79,26 @@ export const colourTypes = [
   {name: 'हलका पीला ', value: 'हलका पीला '}
 ]
 
+// export const optionsList = (field) => {
+//   if (field.name === 'पहचान चिन्ह') {
+//     return recogniseMarks;
+//   } else if (field.name === 'लिंग') {
+//     return sex;
+//   } else if (field.name === 'वर्ण') {
+//     return colourTypes;
+//   } else if (field.name === 'गठन') {
+//     return bodyTypes;
+//   } else if (field.name === 'बालों का प्रकार') {
+//     return hairTypes;
+//   } else if (field.name === 'आँखों के प्रकार') {
+//     return eyeTypes;
+//   } else if (field.name === 'ज्ञात भाषाएँ') {
+//     return languages;
+//   } else {
+//     return [];
+//   }
+// };
+
 export   const optionsList = (field) => {
   switch (field.name) {
     case 'पहचान चिन्ह': return recogniseMarks;
