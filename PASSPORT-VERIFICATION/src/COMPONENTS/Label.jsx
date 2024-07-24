@@ -12,3 +12,19 @@ const Label = ({ field, children }) => {
 };
 
 export default Label;
+
+
+
+
+
+// import React from 'react';
+
+// const Label = ({ field, children }) => (
+//   <label className="block mb-2 text-sm font-medium text-gray-700">
+//     {field.title}
+//     {children}
+//   </label>
+// );
+
+// export default Label;
+

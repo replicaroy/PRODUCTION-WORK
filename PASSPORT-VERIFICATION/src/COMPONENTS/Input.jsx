@@ -1,79 +1,158 @@
+// import React from "react";
+// import Label from "./Label";
+// import { InputText } from "primereact/inputtext";
+// import { Dropdown } from "primereact/dropdown";
+// import { Calendar } from "primereact/calendar";
+// import { InputNumber } from "primereact/inputnumber";
+// import { RadioButton } from "primereact/radiobutton";
+
+// const classObject = {
+//   container: "w-full mt-4   ",
+// };
+
+// const Input = ({ field, name, value, onChange, options, gender }) => {
+//   return (
+//     <div className={classObject.container}>
+//       <Label field={field}>
+//         {field.type === "text" && (
+//           <InputText
+//             className="border border-gray-400 rounded-md w-full h-10"
+//             value={value}
+//             onChange={onChange}
+//             name={field.name}
+//           />
+//         )}
+
+//         {field.type === "date" && (
+//           <Calendar
+//             className="border border-gray-400 w-full rounded-md h-10"
+//             name={field.name}
+//             onChange={onChange}
+//             value={value}
+//           />
+//         )}
+
+// {["वर्ण प्रकार", "संबंध प्रकार"].includes(field.name) && (
+//   <Dropdown
+//     placeholder="-----चयन-----"
+//     className="border border-gray-400 w-full h-10 flex rounded-md items-center text-center"
+//     optionLabel="name"
+//     optionValue="value"
+//     onChange={onChange}
+//     options={options}
+//     value={value}
+//   />
+// )}
+
+//         {field.type === "number" && (
+//           <InputNumber
+//             className="border border-gray-400 w-full rounded-md h-10"
+//             onChange={onChange}
+//             value={value}
+//           />
+//         )}
+
+//         {field.type === "file" && (
+//           <input
+//             className="w-full h-9 rounded-md text-right mr-4"
+//             type="file"
+//             name={field.name}
+//             onChange={onChange}
+//             accept="image/*"
+//           />
+//         )}
+//     {field.type === "radio" && (
+//           <div className="w-full flex gap-2">
+//             {gender.map((option) => (
+//               <div key={option.value} 
+//               className="flex rounded-md items-center">
+//                 <input type= 'radio'                
+//                   inputId={option.value}
+//                   name={field.name}
+//                   value={option.value}
+//                   onChange={onChange}
+//                   checked={value === option.value}                  
+//                 />
+//                 <label htmlFor={option.value} className="ml-2">
+//                   {option.name}
+//                 </label>
+//               </div>
+//             ))}
+//           </div>
+//         )}
+//       </Label>
+//     </div>
+//   );
+// };
+
+// export default Input;
+
 import React from "react";
 import Label from "./Label";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 import { InputNumber } from "primereact/inputnumber";
-import { FileUpload } from 'primereact/fileupload';
+import { FileUpload } from "primereact/fileupload";
 
 const classObject = {
-  // button: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
-  // card: 'max-w-sm rounded overflow-hidden shadow-lg',
-  // container: 'mx-auto px-4',
-  // Add more classes as needed
+  container: 'w-full mt-4',
 };
 
-const Input = ({ key, field, name, value, onChange, options }) => {
+const Input = ({ field, name, value, onChange, options }) => {
   return (
-    <div className={`${classObject}`}>
-    {/* //  <div className=" ">  */}
-      <Label field={field}  >
-        {field.type === "text" ? (
+    <div className={classObject.container}>
+      <Label field={field}>
+        {field.type === "text" && (
           <InputText
-            // style={{ marginTop: 10, padding: "5px 0 5px 10px" }}
             className="border border-gray-400 w-full h-10"
             value={value}
             onChange={onChange}
             name={field.name}
           />
-        ) : null}
+        )}
 
-        {field.type === "date" ? (
+        {field.type === "date" && (
           <Calendar
-          className="border border-gray-400 w-full rounded-md h-10"
-            // style={{ marginTop: 10,  }}
-        
+            className="border border-gray-400 w-full rounded-md h-10"
             name={field.name}
             onChange={onChange}
             value={value}
           />
-        ) : null}
-        {["वर्ण प्रकार", "संबंध प्रकार", "लिंग"].includes(field.name) ? (
-          <Dropdown
-            placeholder="-----चयन-----"
-            className="border border-gray-400 w-full h-10 flex items-center text-center" 
-            // style={{ marginTop: 10, }}
-            optionLabel="name"
-            optionValue="name"
-            onChange={onChange}
-            options={options}
-            value={value}
-          />
-        ) : null}
-        {field.type === "number" ? (
-          <InputNumber
-            className="border border-gray-400 w-full rounded-md h-10 "
-            // style={{ marginTop: 10, }}
-            optionLabel="name"
-            optionValue="name"
-            onChange={onChange}
-            // options={options}
-            value={value}
-          />
-        ) : null}
-        {field.type === "file" ? (
-          <FileUpload
-          className=" border-gray-400 w-full h-9 text-right mr-4 "
-          // style={{ marginTop: 5,}}
+        )}
 
-            mode="basic"
-              name="demo[]"
-              url="/api/upload"
-              accept="image/*"
-              maxFileSize={1000000}
+        {["वर्ण प्रकार", "संबंध प्रकार", "लिंग"].includes(field.name) && (
+          <Dropdown
+              placeholder={field.placeholder}
+              className="border border-gray-400 w-full h-10 flex rounded-md items-center text-center"
+              optionLabel="name"
+              name={field.name}
+              optionValue="name"
+              onChange={onChange}
+              options={options}
+              value={value}
+            />
+        )}
+
+        {field.type === "number" && (
+          <InputNumber
+            className="border border-gray-400 w-full rounded-md h-10"
+            onChange={onChange}
+            value={value}
+            name={field.name}
           />
-          // <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" maxFileSize={1000000}  />
-        ) : null}
+        )}
+
+        {field.type === "file" && (
+          <FileUpload
+            className="border-gray-400 w-full h-9 text-right mr-4"
+            mode="basic"
+            name="demo[]"
+            url="/api/upload"
+            accept="image/*"
+            maxFileSize={1000000}
+          />
+        )}
       </Label>
     </div>
   );
