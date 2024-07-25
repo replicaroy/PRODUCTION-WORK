@@ -109,8 +109,6 @@ const Input = ({ field, onChange, value, options }) => {
               // onUpload={onUpload}
             />
           )}
-
-         
         </Label>
       </div>
     </div>

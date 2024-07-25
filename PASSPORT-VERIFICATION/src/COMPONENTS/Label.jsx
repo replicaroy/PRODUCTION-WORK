@@ -13,10 +13,6 @@ const Label = ({ field, children }) => {
 
 export default Label;
 
-
-
-
-
 // import React from 'react';
 
 // const Label = ({ field, children }) => (

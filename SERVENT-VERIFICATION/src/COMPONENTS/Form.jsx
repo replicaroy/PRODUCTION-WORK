@@ -38,6 +38,7 @@ const Form = () => {
             setData(prev => [...prev, formVal]);
             setFormVal({...formInputs});
             toast.success('Submitted successfully');
+            console.log(data);
         }
     };
 
