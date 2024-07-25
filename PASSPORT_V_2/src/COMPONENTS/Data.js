@@ -69,7 +69,7 @@ export const personDeatails = {
     { name: 'प्रथम नाम', type: 'text', title: 'प्रथम नाम', required: true },
     { name: 'मध्य नाम', type: 'text', title: 'मध्य नाम', required: false },
     { name: "अंतिम नाम", type: 'text', title: 'अंतिम नाम', required: true },
-    { name: "लिंग", type: 'dropdown', title: 'लिंग', required: true, placeholder: '----select-----' },
+    // { name: "लिंग", type: 'dropdown', title: 'लिंग', required: true, placeholder: '----select-----' },
    
     { name: "संबंध प्रकार", type: 'dropdown', title: 'संबंध प्रकार', required: true, placeholder: '----select-----' },
     { name: "संबंधी का नाम", type: 'text', title: 'संबंधी का नाम', required: true },
@@ -88,5 +88,5 @@ export const personDeatails = {
     { name: "ऊंचाई ऊपरी सीमा", type: 'text', title: 'ऊंचाई ऊपरी सीमा', required: true },
     { name: "मोबाइल नंबर", type: 'number', title: 'मोबाइल नंबर', required: false },
     { name: "लैंडलाइन नंबर", type: 'number', title: 'लैंडलाइन नंबर', required: false },
-    // { name: "लिंग", type: 'radio', title: 'लिंग', required: true },
+    { name: "लिंग", type: 'radio', title: 'लिंग', required: true }
   ];

@@ -36,7 +36,7 @@ const Input = ({ field, onChange, gender, value, options }) => {
         {field.type === "number" && (
           <InputNumber
           className="border border-gray-400 w-full h-10 min-w-56 "
-            // name={field.name}
+            // name={field.name}z
             onChange={onChange}
             value={value}
           />
@@ -49,6 +49,56 @@ const Input = ({ field, onChange, gender, value, options }) => {
         value={value}
         />
          }
+
+         {field.type === 'radio'&&  (
+         <div className="">
+          {gender.map((gen)=>(
+            <div className="flex">
+        <RadioButton
+        className=" h-10 my-3 rounded-md min-w-56  "
+        name={field.name}
+        onChange={onChange}
+      checked={gen.value}
+        />
+        </div>
+          ))}
+         </div>
+       )  }
+
+         {/* {field.type=== 'radio' && (
+          <div>
+            {gender.map((gen)=> (
+              <div className="flex">
+              <RadioButton
+              checked={value}
+
+              />
+              </div>
+            ))}
+
+            
+          </div>
+        )} */}
+
+        {field.type === "radio" && (
+          <div className="w-full flex gap-2">
+            {gender.map((option) => (
+              <div key={option.value} 
+              className="flex rounded-md items-center">
+                <input type= 'radio'                
+                  inputId={option.value}
+                  name={field.name}
+                  value={option.value}
+                  onChange={onChange}
+                  checked={value === option.value}                  
+                />
+                <label htmlFor={option.value} className="ml-2">
+                  {option.name}
+                </label>
+              </div>
+            ))}
+          </div>
+        )}
 
       </Label>
     </div>
