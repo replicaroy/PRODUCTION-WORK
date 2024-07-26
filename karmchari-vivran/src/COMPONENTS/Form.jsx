@@ -11,6 +11,7 @@ import Showdata from "./Showdata";
 const Form = () => {
   const [formData, setFormData] = useState(formVal);
   const [data, setData] = useState([]);
+  
 
   const workPreferences = [
     { id: 1, name: "workp", value: "Day" },
@@ -18,11 +19,7 @@ const Form = () => {
     { id: 3, name: "workp", value: "Day-Night" },
   ];
 
-  const checkfields = [
-    { id: 1, name: "known works", value: "Cooking" },
-    { id: 2, name: "known works", value: "Cleaning" },
-    { id: 3, name: "known works", value: "Driving" },
-  ];
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -79,7 +76,6 @@ const Form = () => {
                   value={formData[field.name] || ""}
                   options={optionsList(field)}
                   workPreferences={workPreferences}
-                  checkfields={checkfields}
                 />
               ))}
             </div>
@@ -94,7 +90,6 @@ const Form = () => {
                   value={formData[field.name] || ""}
                   options={optionsList(field)}
                   workPreferences={workPreferences}
-                  checkfields={checkfields}
                 />
               ))}
             </div>

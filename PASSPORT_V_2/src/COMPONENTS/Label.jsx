@@ -9,4 +9,4 @@ const Label = ({children, field}) => {
   )
 }
 
-export default Label
+export default Label;

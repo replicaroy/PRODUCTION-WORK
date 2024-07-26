@@ -20,6 +20,11 @@ export const personDeatails = {
     "मोबाइल नंबर": "",
     "लैंडलाइन नंबर": "",
   };
+  export const tenure = [
+    {name: 'One year', value: 'one year'},
+    {name: 'Two  year', value: 'two year'},
+    {name: 'Three year', value : 'three year'},
+  ]
   
   export const optionsList = (field) => {
     if (field.name === 'लिंग') {
@@ -76,6 +81,7 @@ export const personDeatails = {
     { name: "वर्ण प्रकार", type: 'dropdown', title: 'वर्ण प्रकार', required: false, placeholder: '----select-----' },
     { name: "पहचान के मार्क", type: 'text', title: 'पहचान के मार्क', required: true },
     { name: "आवेदक का फोटो", type: 'file', title: 'आवेदक का फोटो', required: true },
+    { name: "CHECK", type: 'check', title: 'CHECKED', required: true },
   ];
   
   export const formfieldsarray2 = [
