@@ -211,11 +211,7 @@ const Input = ({ field, onChange, gender, value, options, tenure }) => {
               </div>
             ))}
           </div>
-        )}
-
-
-
-       
+        )}       
       </Label>
     </div>
   );
