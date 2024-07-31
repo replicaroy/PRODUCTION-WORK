@@ -4,14 +4,23 @@ import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
 import { InputTextarea } from "primereact/inputtextarea";
 import { RadioButton } from "primereact/radiobutton";
+import { InputNumber } from "primereact/inputnumber";
+import { Checkbox } from "primereact/checkbox";
 
 const radioSelect = [
   { name: "एक", value: "एक" },
   { name: "विभिन्न", value: "विभिन्न" },
 ];
 
+const checkFields = [
+  { name: "one", value: "one" },
+  { name: "two", value: "two" },
+  { name: "three", value: "three" },
+];
+
 const Input = ({ fields, options, onChange, value }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  console.log(currentTime);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -22,11 +31,12 @@ const Input = ({ fields, options, onChange, value }) => {
   }, []);
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 text-sm">
       <Label fields={fields}>
         {fields.type === "date" && (
           <label htmlFor="">
-            {fields.label}: {currentTime.toLocaleDateString()} {currentTime.toLocaleTimeString()}
+            {fields.label}: {currentTime.toLocaleDateString()}{" "}
+            {currentTime.toLocaleTimeString()}
           </label>
         )}
 
@@ -41,10 +51,9 @@ const Input = ({ fields, options, onChange, value }) => {
 
         {fields.type === "dropdown" && (
           <Dropdown
-            className="border h-10 w-full"
+            className="border h-10 w-full text-center "
             options={options}
-            optionLabel="name"
-            optionValue="value"
+            optionLabel="name"           
             placeholder={fields.placeholder}
             name={fields.label}
             onChange={onChange}
@@ -62,16 +71,32 @@ const Input = ({ fields, options, onChange, value }) => {
             cols={50}
           />
         )}
-            {/* {fields.type === "textarea" && (
-          <InputTextarea
-            className="border w-full min-w-0"
-            onChange={onChange}
-            value={value}
-            name={fields.label} // Ensure the name attribute is set
-            rows={6}
-            cols={50}
-          />
-        )} */}
+
+        {fields.type === "file" && (
+          <input type="file" 
+          placeholder={'upload photo'} 
+          onChange={onChange} 
+          className="h-10 w-full"
+          name={fields.label}
+           />
+        )}
+
+        {fields.type === "checkbox" && (
+          <div className="flex gap-4 text-sm">
+            {checkFields.map((check) => (
+              <div key={check.value} className="flex gap-1">
+                <Checkbox
+                 className="h-10 w-full"
+                  onChange={onChange}
+                  value={check.value}
+                  name={fields.label}
+                  checked={value?.includes(check.value)}
+                />
+                <label htmlFor={check.value}>{check.name}</label>
+              </div>
+            ))}
+          </div>
+        )}
 
         {fields.type === "radio" && (
           <>
@@ -79,7 +104,7 @@ const Input = ({ fields, options, onChange, value }) => {
               {radioSelect.map((select) => (
                 <div className="flex mr-6" key={select.value}>
                   <RadioButton
-                    className="mr-2"
+                    className="mr-2 h-10 w-full"
                     inputId={select.value}
                     name={fields.label}
                     onChange={onChange}
@@ -91,6 +116,16 @@ const Input = ({ fields, options, onChange, value }) => {
               ))}
             </div>
           </>
+        )}
+
+        {fields.type === "number" && (
+          <InputNumber
+          className="h-10 w-full"
+            value={value}
+            onValueChange={onChange}
+            useGrouping={false}
+            name={fields.label}
+          />
         )}
       </Label>
     </div>

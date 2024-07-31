@@ -9,22 +9,32 @@ const Form = () => {
   const [data, setData] = useState([]);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormval((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    console.log(name, value);
-  };
+    const { name, value, checked, type } = e.target;
+    if (type === "checkbox") {
+      setFormval((prev) => {
+        let updatedValues;
 
+        if (checked) {         
+          const existingValues = prev[name] || [];
+          updatedValues = [...existingValues, value];
+        } else {        
+          const existingValues = prev[name] || [];
+          updatedValues = existingValues.filter((v) => v !== value);
+        }
+        return { ...prev, [name]: updatedValues };
+      });
+    } else {
+      setFormval((prev) => ({ ...prev, [name]: value }));
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    for (const key in formval) {
-        if (formval[key] === "") {
-          alert(" all fields required");
-          return;
-        }
-      }
+    // for (const key in formval) {
+    //     if (formval[key] === "") {
+    //       alert(" all fields required");
+    //       return;
+    //     }
+    //   }
     setData([...data, formval]);
     console.log(data);
     setFormval(formObj)

@@ -1,0 +1,8 @@
+input[type="file"]::file-selector-button {
+    background-color: #0a7bde;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

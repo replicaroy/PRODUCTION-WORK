@@ -5,52 +5,83 @@ export const formObj = {
   "जनरल डायरी प्रकार": "",
   "जनरल डायरी उप-प्रकार": "",
   "प्रविष्टि (अधिकारी के लिए)": "",
-  "विषय": ""
+  "विषय": "",
+  "संक्षिप्त जनरत विवरण(FIR का संक्षिप्त ज्ञापन रिपोर्ट आदि के लिए)": '',
+  upload: '',
+  choose: ''
 }
 
 export const formFields1 = [   
-    {
-      label: "दिनांक / समय",
-      value: "", // Placeholder for the selected value
-      type: "date",
-    //   options: ["एक", "विचित्र"],
-      selectedOption: ""
-    },
-    {
-        label: "चयन",
-        type: "radio",
-        selectedOption: ""
-      },
+  {
+    label: "दिनांक / समय",  
+    type: "date",    
+    required: false,
+    placeholder: ''
+  },
+  {
+    label: "चयन",
+    type: "radio",    
+    required: true,
+    placeholder: ''
+  },
+  {
+    label: "जनरल डायरी प्रकार",
+    type: "dropdown",    
+    required: true,
+    placeholder: '-------select-------'
+  },
+  {
+    label: "जनरल डायरी उप-प्रकार",
+    type: "dropdown",
+    required: true,
+    placeholder: '-------select-------'
+  },
+  {
+    label: "प्रविष्टि (अधिकारी के लिए)",
+    type: "dropdown",  
+    required: true,
+    placeholder: '-------select-------'
+  },
+  {
+    label: "विषय", 
+    type: "text",
+    maxLength: 100,
+    required: true,
+    placeholder: ''
+  }, 
+  {
+    label: "Phone NO.",
+    type: "number",   
+    required: true,
+    placeholder: ''
+  },     
+  {
+    label: "Landline No.",
+    type: "number",   
+    required: true,
+    placeholder: ''
+  },     
+  {
+    label: "choose",
+    type: "checkbox",   
+    required: false,
+    placeholder: ''
+  }, 
+  {
+    label: "upload",
+    type: "file",   
+    required: false,
+  }, 
+];
 
-    {
-      label: "जनरल डायरी प्रकार",
-      type: "dropdown",    
-    },
-    {
-      label: "जनरल डायरी उप-प्रकार",
-      type: "dropdown",
-    },
-    {
-      label: "प्रविष्टि (अधिकारी के लिए)",
-      type: "dropdown",  
-    },
-    {
-      label: "विषय", 
-      type: "text",
-      maxLength: 100
-    },  
-    {
-      label: "विषय",
-      type: "text",
-      maxLength: 100
-    },  
 
-  ];
+  
   export const formFields2 = [     
     {
       label: "संक्षिप्त जनरत विवरण(FIR का संक्षिप्त ज्ञापन रिपोर्ट आदि के लिए)",
       type: "textarea",
-      maxLength: 20000
+      maxLength: 20000,
+      required: false,
     }
   ];
 
