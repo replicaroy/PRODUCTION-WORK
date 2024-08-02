@@ -19,12 +19,9 @@ const checkFields = [
 ];
 
 const Input = ({ fields, options, onChange, value }) => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-  console.log(currentTime);
-
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
+      onChange({target: {value: new Date(), name:"दिनांक / समय"}});
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -35,8 +32,7 @@ const Input = ({ fields, options, onChange, value }) => {
       <Label fields={fields}>
         {fields.type === "date" && (
           <label htmlFor="">
-            {fields.label}: {currentTime.toLocaleDateString()}{" "}
-            {currentTime.toLocaleTimeString()}
+            {fields.label}: { value ? value?.toLocaleDateString() +" "+  value?.toLocaleTimeString() : null}
           </label>
         )}
 

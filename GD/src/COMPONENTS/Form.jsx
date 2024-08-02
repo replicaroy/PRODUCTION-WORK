@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Input from "./Input";
-import { formFields1, formFields2, optionsList, formObj } from "./Data";
+import { formFields1, formFields2, optionsList,  } from "./Data";
 const allfields = [...formFields1, ...formFields2];
 console.log(allfields);
 
 const Form = () => {
-  const [formval, setFormval] = useState(formObj);
+  const [formval, setFormval] = useState({});
   const [data, setData] = useState([]);
 
+  
   const handleChange = (e) => {
+    // console.log(e)
     const { name, value, checked, type } = e.target;
     if (type === "checkbox") {
       setFormval((prev) => {
@@ -16,7 +18,9 @@ const Form = () => {
 
         if (checked) {         
           const existingValues = prev[name] || [];
+          console.log(existingValues);
           updatedValues = [...existingValues, value];
+          console.log(value);
         } else {        
           const existingValues = prev[name] || [];
           updatedValues = existingValues.filter((v) => v !== value);
@@ -36,8 +40,8 @@ const Form = () => {
     //     }
     //   }
     setData([...data, formval]);
-    console.log(data);
-    setFormval(formObj)
+    // console.log(data);
+    setFormval({})
   };
 
   return (
@@ -89,7 +93,7 @@ const Form = () => {
             <tbody>
               <tr style={{background : i%2 === 0 ? 'white': '#eee'}}>
                 {allfields.map((ele, i) => (
-                  <td className="py-2 text-black"  >{item[ele.label]}</td>
+                  <td className="py-2 text-black"  >{ele.type === 'date' ? item[ele.label]?.toLocaleDateString() +" "+  item[ele.label]?.toLocaleTimeString() : item[ele.label]}</td>
                 ))}
               </tr>
             </tbody>
