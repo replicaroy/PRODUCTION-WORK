@@ -31,17 +31,23 @@ const Form = () => {
       setFormval((prev) => ({ ...prev, [name]: value }));
     }
   };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // for (const key in formval) {
+  //   //     if (formval[key] === "") {
+  //   //       alert(" all fields required");
+  //   //       return;
+  //   //     }
+  //   //   }
+  //   setData([...data, formval]);
+  //   // console.log(data);
+  //   setFormval('')
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // for (const key in formval) {
-    //     if (formval[key] === "") {
-    //       alert(" all fields required");
-    //       return;
-    //     }
-    //   }
     setData([...data, formval]);
-    // console.log(data);
-    setFormval({})
+    setFormval({});
   };
 
   return (
@@ -56,7 +62,9 @@ const Form = () => {
                   fields={fields}
                   options={optionsList(fields)}
                   onChange={handleChange}
-                  value={formval?.[fields.label]}
+                  // value={formval?.[fields.label]}
+                  value={formval?.[fields.label]|| ''}
+
                 />
               ))}
             </div>
@@ -68,7 +76,9 @@ const Form = () => {
                   fields={fields}
                   options={optionsList(fields)}
                   onChange={handleChange}
-                  value={formval?.[fields.label]}
+                  // value={formval?.[fields.label]}
+                  value={formval?.[fields.label]|| ''}
+
                 />
               ))}
             </div>
